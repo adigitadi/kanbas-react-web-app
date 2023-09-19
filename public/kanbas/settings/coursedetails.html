@@ -1,0 +1,226 @@
+<html>
+    <head>
+    </head>
+    <body><table><tr>
+        <td style="vertical-align: top;">
+    <ul>
+        <li><a href= "#">Account</a></li>
+        <li><a href= "#">Dashboard</a></li>
+        <li><a href= "#">Courses</a></li>
+        <li><a href= "#">Calender</a></li>
+        <li><a href= "#">Inbox</a></li>
+        <li><a href= "#">History</a></li>
+        <li><a href= "#">Studio</a></li>
+        <li><a href= "#">Commons</a></li>
+        <li><a href= "#">Help</a></li>
+
+    </ul></td>
+    <td style="vertical-align: top;">
+    <ul>
+        <li><a href= "../home.html">Home</a></li>
+        <li><a href= "#">Modules</a></li>
+        <li><a href= "#">Piazza</a></li>
+        <li><a href= "#">Zoom Meetings</a></li>
+        <li><a href= "../assignments/index.html">Assignments</a></li>
+        <li><a href= "#">Quizzes</a></li>
+        <li><a href= "../grades.html">Grades</a></li>
+        <li><a href= "#">People</a></li>
+        <li><a href= "#">Panopto Video</a></li>
+        <li><a href= "#">Discussions</a></li>
+        <li><a href= "#">Announcements</a></li>
+        <li><a href= "#">Pages</a></li>
+        <li><a href= "#">Files</a></li>
+        <li><a href= "#">Rubrics</a></li>
+        <li><a href= "#">Outcomes</a></li>
+        <li><a href= "#">Collaborations</a></li>
+        <li><a href= "#">Syllabus</a></li>
+        <li><a href= "#">Settings</a></li>
+     </ul>
+    </td>
+
+    <td style="vertical-align: top;">
+    
+    <a href = "coursedetails.html">Course Details</a><a href = "#">|Sections|</a><a href = "navigation.html">Navigation</a><a href = "#">|Apps|</a><a href = "#">Feature Options</a><a href = "#">|Integrations</a>
+
+    <h2>Course Details</h2>
+    
+    <table>
+        <tr>
+            <td>Image:</td>
+            <td><button type="button">Upload Image</button></td>
+        </tr>
+
+        <tr>
+            <td>Name:</td>
+            <td>CS5610.12621 Web Development SEC 01 Fall 2023[BOS-1 TR]</td>
+        </tr>
+
+        <tr>
+            <td>Course Code:</td>
+            <td>CS5610.12631.202410</td>
+        </tr>
+
+        <tr>
+            <td>Blueprint Course</td>
+            <td>No</td>
+        </tr>
+
+        <tr>
+            <td>Course Template</td>
+            <td><input type="checkbox" value="template"
+                name="check-template" id="chkbox-template"/>
+            <label for="chkbox-template">Enable course as a Course Template</label></td>
+        </tr>
+
+        <tr>
+            <td>Time Zone:</td>
+            <td><select id="select-one-timezone">
+                <option selected value="timezone">
+                    EST (US & Canada) (-05:00/-4:00)</option>
+             </select></td>
+        </tr>
+        <tr>
+            <td>SIS ID:</td>
+            <td>CS5610.12631.202410</td>
+        </tr>
+        <tr>
+            <td>Subaccount:</td>
+            <td>CS grad</td>
+        </tr>
+        <tr>
+            <td>Term:</td>
+            <td>Fall 2023 Full Term</td>
+        </tr>
+        <tr>
+            <td>Participation</td>
+            <td><br/><br/><select id="select-one-participation">
+                <option selected value="participation">
+                    Term</option>
+             </select><br/>
+            <p>Course participation is limited to term start and end dates</p>
+            <label for="text-fields-start">
+                Start
+                </label><br/>
+                <input type="date"
+                    id="text-fields-start"/><br/>
+
+            <label for="text-fields-end">
+                End
+                </label><br/>
+                <input type="date"
+                    id="text-fields-end"/><br/>
+            <input type="checkbox" value="restrictAfter"
+                name="check-restrictAfter" id="chkbox-restrictAfter"/>
+            <label for="chkbox-restrictAfter">Restrict staudents from viewing course before term start date</label><br/>
+
+            <input type="checkbox" value="restrictBefore"
+                name="check-restrictBefore" id="chkbox-restrictBefore"/>
+            <label for="chkbox-restrictBefore">Restrict staudents from viewing course after term end date</label><br/>            
+            
+            </td>
+        </tr>
+        <tr>
+            <td>Default due time:</td>
+            <td></br><br/><select id="select-one-defaulttime">
+                <option selected value="defaultTime">
+                    Account default (11:59pm)</option>
+             </select>
+            <p>This influences the user interface for setting due dates. It does not change the time due for any existing assignments.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Language</td>
+            <td><br/><br/><select id="select-one-language">
+                <option selected value="language">
+                    Not set(user-configurable)</option>
+             </select><br/>
+            <p>This will override any user/system language prefereances. This  is only recommended for foreign language courses</p></td>
+        </tr>
+        <tr>
+            <td>File Storage:</td>
+            <td>10000 megabytes</td>
+        </tr>
+
+        <tr>
+            <td>Large Course:</td>
+            <td><input type="checkbox" value="largeCourse"
+                name="check-largeCourse" id="chkbox-largeCourse"/>
+            <label for="chkbox-largeCourse">Launch SpeedGrader Filtered by Student Group</label><br/>
+        </td>
+        </tr>
+
+        <tr>
+            <td>Grading Scheme:</td>
+            <td><input type="checkbox" value="grading"
+                name="check-grading" id="chkbox-grading"/>
+            <label for="chkbox-grading">Enable course grading scheme</label><br/>
+        </td>
+        </tr>
+        <tr>
+            <td>License:</td>
+            <td><select id="select-one-license">
+                <option selected value="license">
+                    Private (Copyrighted)</option>
+             </select></td>
+        </tr>
+
+        <tr>
+            <td>File Copyright:</td>
+            <td><input type="checkbox" value="copyright"
+                name="check-copyright" id="chkbox-copyright"/>
+            <label for="chkbox-copyright">Copyright and license infromation must be provided for files before they are published.</label><br/>
+        </td>
+        </tr>
+        <tr>
+            <td><br/><br/>Visibility</td>
+            <td>
+                <p>If you need to make your course public please contact your administartor/support</p>
+                
+                <select id="select-one-visibility">
+                    <option selected value="visibility">
+                        Course</option>
+                 </select><br/>
+                
+                <input type="checkbox" value="includePublic"
+                name="check-includePublic" id="chkbox-includePublic"/>
+            <label for="chkbox-includePublic">Include this course in the public course index</label><br/>            
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>Format:</td>
+            <td><select id="select-one-format">
+                <option selected value="oncampus">
+                    On-Campus</option>
+             </select></td>
+        </tr>
+
+        <tr>
+            <td>Mastery Paths:</td>
+            <td>
+                <input type="checkbox" value="masteryPaths"
+                name="check-masteryPaths" id="chkbox-masteryPaths"/>
+            <label for="chkbox-masteryPaths">Enable individual learning paths for staudents based on assessment</label><br/>            
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Description</td>
+            <td><br/><br/><textarea cols="20"
+                placeholder="description"
+                title="tooltip">This is the assignment description
+           </textarea>
+           <p>more options</p>
+        </td>
+
+        </tr>
+
+        <br/>
+        
+    </table>
+
+    <button type="button">Update Course Details</button>
+    </td></tr></table>
+</body>
+</html>
