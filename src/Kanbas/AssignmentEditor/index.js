@@ -32,7 +32,7 @@ function AssignmentEditor() {
                 marginLeft: '20px',
               }}
             ></FaBars>
-            <a href="#" style={{ color: '#b52828' }}>
+            <a href="#/Kanbas/Dashboard" style={{ color: '#b52828' }}>
             {courseId}
             </a>
           </li>
