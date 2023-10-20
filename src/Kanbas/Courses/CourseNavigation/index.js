@@ -1,5 +1,7 @@
 import { Link, useParams, useLocation } from 'react-router-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const CourseNavigation = () => {
   const links = ['Home', 'Modules', 'Piazza','Zoom Meetings','Assignments','Quizzes','Grades','People',

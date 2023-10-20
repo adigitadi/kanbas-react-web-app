@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import {BiUserCircle} from 'react-icons/bi';
 import {RiDashboard3Fill} from 'react-icons/ri';
-import { FaBook, FaInbox, FaClock } from 'react-icons/fa';
-import { FaArrowRightFromBracket,FaCalendarDays,FaCircleQuestion,FaYoutube} from 'react-icons/fa6';
+import { FaUser, FaBook, FaInbox, FaClock } from 'react-icons/fa';
+import { FaArrowRightFromBracket,FaCalendarDays,FaCircleQuestion,FaGauge,FaYoutube} from 'react-icons/fa6';
+import styles from './index.css';
 
 
 function KanbasNavigation() {
@@ -24,8 +25,8 @@ function KanbasNavigation() {
     <div style={{backgroundColor:"black"}}>
       <div className="wd_kanbas_navigation wd-col-flex">
         <div className="wd_logo_container">
-        {/* eslint-disable-next-line */}
-          <a href="#" onClick={(e) => e.preventDefault()}>
+          {/* eslint-disable-next-line */}
+          <a href="#">
             <img
               src={require('../../images/northeastern.png')}
               className="wd_logo"
