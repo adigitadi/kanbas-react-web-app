@@ -1,0 +1,13 @@
+.course-navigation-items{
+  color: red;
+  border: none;
+}
+
+.course-navigation{
+  padding-left: 10px;
+  .active{
+    color: black!important;
+    border-left: 2px solid black!important;
+  }  
+}
+

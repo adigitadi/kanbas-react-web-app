@@ -1,0 +1,86 @@
+.wd_kanbas_navigation {
+  list-style: none;
+  padding: 0px;
+  width: 130px;
+  margin: 0px;
+  height: 100vh;
+}
+
+.wd-icon-user{
+  font-size: 2em;
+  color: grey;
+}
+
+.wd-icon{
+  font-size: 2em;
+  color: red;
+}
+
+.wd-navigation-item{
+  color: white;
+  text-align: center;
+  background-color: black;
+  border: none;
+}
+
+.wd_kanbas_navigation li {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.wd_kanbas-navigation li.wd_active {
+  background-color: white;
+}
+.wd_kanbas_navigation li.wd_active a {
+  color: #b52828;
+}
+
+.kanbas__navLink {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.icon {
+  margin: auto;
+  display: block;
+  color: #b52828;
+  font-size: 1.6em;
+  margin-bottom: 5px;
+}
+
+.wd_logo {
+  width: 84px;
+}
+
+.wd_logo_container {
+  padding: 0 1px;
+  text-align: center;
+  height: 100px;
+  background-color: black;
+}
+
+.active {
+  background-color: white;
+}
+
+.wd-col-flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.active{
+  background-color: white!important;
+  .wd-list{
+    color: red!important;
+  }
+}
+
+.wd-navigation-list{
+  background-color: black;
+}
+
+.wd-list{
+  color: white;
+}
