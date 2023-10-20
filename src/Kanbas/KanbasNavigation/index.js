@@ -25,7 +25,7 @@ function KanbasNavigation() {
     <div style={{backgroundColor:"black"}}>
       <div className="wd_kanbas_navigation wd-col-flex">
         <div className="wd_logo_container">
-          <a href="#/Kanbas/Dashboard">
+          <a hhref="#" onClick={(e) => e.preventDefault()}>
             <img
               src={require('../../images/northeastern.png')}
               className="wd_logo"

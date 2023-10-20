@@ -25,7 +25,7 @@ function Assignments() {
                 marginLeft: '20px',
               }}
             ></FaBars>
-            <a href="#/Kanbas/Dashboard" style={{ color: '#b52828' }}>
+            <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#b52828' }}>
             {courseId}
             </a>
           </li>
