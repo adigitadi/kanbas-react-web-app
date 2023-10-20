@@ -36,8 +36,8 @@ function AssignmentEditor() {
             {courseId}
             </a>
           </li>
-          <li class="breadcrumb-item active"><a href="#" style={{ color: '#b52828' }}>
-          Assignments</a>
+          <li class="breadcrumb-item active">
+          Assignments
           </li>
           <li class="breadcrumb-item active" aria-current="page">
           {assignment.title}
