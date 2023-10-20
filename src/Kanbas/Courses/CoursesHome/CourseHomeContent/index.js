@@ -28,12 +28,15 @@ const CourseHomeContent = () => {
             <i class="fa-regular fa-circle-check"></i>Publish All
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          // eslint-disable-next-line
             <a class="dropdown-item" href="#" onClick={(e) => e.preventDefault()}>
               Publish All
             </a>
+            // eslint-disable-next-line
             <a class="dropdown-item" href="#" onClick={(e) => e.preventDefault()}>
               Publish all items and modules
             </a>
+            // eslint-disable-next-line
             <a class="dropdown-item" href="#" onClick={(e) => e.preventDefault()}>
               UnPublish
             </a>

@@ -19,6 +19,7 @@ function Modules() {
                 marginLeft: '20px',
               }}
             ></FaBars>
+            // eslint-disable-next-line
             <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#b52828' }}>
             {courseId}
             </a>

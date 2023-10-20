@@ -22,7 +22,8 @@ function Grades() {
                 marginLeft: '20px',
               }}
             ></FaBars>
-            <a href="#/Kanbas/Dashboard" style={{ color: '#b52828' }}>
+            // eslint-disable-next-line
+            <a href="#" style={{ color: '#b52828' }}>
             {courseId}
             </a>
           </li>
