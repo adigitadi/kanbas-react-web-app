@@ -1,8 +1,16 @@
 import 'font-awesome/css/font-awesome.min.css';
 import '../../Modules/index.css'
 import ModuleList from "../../Modules/ModuleList";
+import React, { useState } from 'react';
+import { useSelector} from "react-redux";
+import Popup from '../../Modules/AddModulePopup';
 
-const CourseHomeContent = () => {
+function CourseHomeContent () {
+  const [isOpen, setIsOpen] = useState(false);
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+  const module = useSelector((state) => state.modulesReducer.module);
   return (
     <div
       class="wd-flex-grow-1"
@@ -43,7 +51,7 @@ const CourseHomeContent = () => {
           </div>
         </div>
 
-        <button class="btn btn-danger">
+        <button class="btn btn-danger" onClick={togglePopup}>
           <i class="fa fa-plus" style={{ marginRight: '3px' }}></i>Module
         </button>
         <button class="btn" style={{ background: '#eeeeee', height: '38px' }}>
@@ -53,6 +61,7 @@ const CourseHomeContent = () => {
       <br />
       <hr />
       <ModuleList />
+      <Popup isOpen={isOpen} togglePopup={togglePopup} module={module}/>
     </div>
   );
 };

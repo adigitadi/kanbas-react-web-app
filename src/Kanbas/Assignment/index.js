@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState }  from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../Database";
+import { useSelector, useDispatch } from "react-redux";
 import { FaBars } from 'react-icons/fa';
 import styles from '../Courses/Modules/index.css';
 import '../Courses/Modules/index.css'
 import 'font-awesome/css/font-awesome.min.css';
-
+import { FaFilePen } from 'react-icons/fa6';
+import { FaTrash } from 'react-icons/fa';
+import {
+  deleteAssignment,
+  setAssignment  
+} from "./assignmentsReducer";
+import Popup from './AssignmentAddPopup';
 
 function Assignments() {
+  const [isOpen, setIsOpen] = useState(false);
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
   const { courseId } = useParams();
-  const assignments = db.assignments;
+  const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+  const dispatch = useDispatch();
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId);
   return (
@@ -45,8 +56,8 @@ function Assignments() {
       <button className="btn" style={{background: '#eeeeee'}}>
         <i className="fa fa-plus"></i>Group
       </button>
-      <button className="btn btn-danger">
-        <i className="fa fa-plus"></i>Module
+      <button className="btn btn-danger" onClick={togglePopup}>
+        <i className="fa fa-plus"></i>Assignment
       </button>
       <button className="btn" style={{background: '#eeeeee', height: '38px'}}>
         <i className="fa-solid fa-ellipsis-vertical"></i>
@@ -73,7 +84,7 @@ function Assignments() {
           <i className="fa fa-grip-vertical" style={{marginRight: '20px'}}></i>
           <i className="fa fa-book"></i>
           <h6 style={{display: 'inline'}}>
-            <strong><Link to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`} style={{color: 'black'}}>{assignment.title}</Link></strong>
+            <strong>{assignment.title}</strong>
           </h6>
           <div className="float-end">
             <i className="fa-solid fa-circle-check"></i>
@@ -81,13 +92,35 @@ function Assignments() {
           </div>
           {/* Replace with actual details */}
           <div style={{marginLeft: '70px', color: '#686464', width: '600px'}}>
-            <p style={{fontSize: '15px', marginBottom: '1px'}}>Multiple Modules | Not available</p>
+            <p style={{fontSize: '15px', marginBottom: '1px'}}>{assignment.description} | <strong>Due</strong> {new Date(assignment.dueDate).toISOString().split('T')[0]} | {assignment.points} points</p>
           </div>
+          <div style={{ paddingLeft: '12px',display: 'flex', justifyContent: 'space-between' }}>
+          <Link to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`} style={{color: 'black'}}>
+              <button style={{ background: 'white', border: 'white' }}
+               onClick={(e) => {
+                dispatch(setAssignment(assignment));}}>
+              <FaFilePen
+                      style={{ color: 'grey', fontSize: '20px' }}
+                    ></FaFilePen>
+              </button></Link>
+              <button style={{ background: 'white', border: 'white' }}
+              onClick={() => {
+              if (window.confirm('Are you sure you want to remove the assignment?')) {
+                dispatch(deleteAssignment(assignment._id))
+                }}}>
+    <FaTrash
+        style={{ color: 'grey', fontSize: '20px' }}
+    ></FaTrash>
+</button>
+
+              </div>
         </li>
       </ul>
     ))}
   </ul>
-</div></div>
+</div>
+<Popup isOpen={isOpen} togglePopup={togglePopup}/>
+</div>
 
 
 

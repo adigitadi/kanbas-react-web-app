@@ -26,7 +26,7 @@ function KanbasNavigation() {
       <div className="wd_kanbas_navigation wd-col-flex">
         <div className="wd_logo_container">
           {/* eslint-disable-next-line */}
-          <a href="#">
+          <a href="#/hello">
             <img
               src={require('../../images/northeastern.png')}
               className="wd_logo"
