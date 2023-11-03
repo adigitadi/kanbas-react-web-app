@@ -4,11 +4,11 @@ import db from "../Database";
 
 const initialState = {
   assignments: db.assignments,
-  assignment: { "title": "Propulsion Assignment", 
-  "description": "Multiple Modules | Not available", 
-  "points": "100", "dueDate": "2023-12-31T23:59:59Z", 
-  "availableFrom": "2023-11-31T23:59:59Z", 
-  "availableUntil": "2024-01-01T23:59:59Z" },
+  assignment: { title: "New Assignment", 
+  description: "New Decription", 
+  points: "100", dueDate: "2023-12-31T23:59:59Z", 
+  availableFrom: "2023-11-31T23:59:59Z", 
+  availableUntil: "2024-01-01T23:59:59Z" },
 };
 
 

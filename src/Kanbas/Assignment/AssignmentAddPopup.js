@@ -1,6 +1,6 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { AiOutlineClose } from 'react-icons/ai';
+import { useParams } from "react-router-dom";
 import '../Courses/Modules/index.css'
 import 'font-awesome/css/font-awesome.min.css';
 import { useSelector, useDispatch } from "react-redux";
@@ -11,9 +11,8 @@ import {
 
 function AssignmentAddPopup({ isOpen, togglePopup }) {
   const dispatch = useDispatch();
+  const { courseId } = useParams();
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
-
-  const { assignmentId } = useParams();
 
   if (!isOpen) {
     return null;
@@ -83,7 +82,7 @@ function AssignmentAddPopup({ isOpen, togglePopup }) {
 
             <div className="form-group">
                 <button className="btn btn-secondary" onClick={() => togglePopup()}>Cancel</button>
-              <button onClick={() => {dispatch(addAssignment({...assignment, assignment: assignmentId}));togglePopup();}} className="btn btn-danger">
+              <button onClick={() => {dispatch(addAssignment({...assignment, course: courseId }));togglePopup();}} className="btn btn-danger">
                 Add
               </button>
             </div>

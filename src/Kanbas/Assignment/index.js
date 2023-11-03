@@ -20,6 +20,7 @@ function Assignments() {
   }
   const { courseId } = useParams();
   const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+  const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId);
@@ -119,13 +120,8 @@ function Assignments() {
     ))}
   </ul>
 </div>
-<Popup isOpen={isOpen} togglePopup={togglePopup}/>
-</div>
-
-
-
-
-    
+<Popup isOpen={isOpen} togglePopup={togglePopup} assignment={assignment} />
+</div> 
   );
 }
 export default Assignments;
