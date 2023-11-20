@@ -2,23 +2,37 @@ import { useParams } from "react-router-dom";
 import './index.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { useSelector, useDispatch } from "react-redux";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Popup from './EditModulePopup';
 import { FaFilePen } from 'react-icons/fa6';
 import { FaTrash } from 'react-icons/fa';
 import {
   deleteModule,
-  setModule,
+  setModule, setModules,
 } from "./modulesReducer";
+import * as client from "./client";
+import { findModulesForCourse } from "./client";
 
 function ModuleList() {
   const { courseId } = useParams();
-  const modules = useSelector((state) => state.modulesReducer.modules);
   const dispatch = useDispatch();
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId, dispatch]);
+  const modules = useSelector((state) => state.modulesReducer.modules);
+  
   const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
-  }
+  };
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
   return (
     <ul class="list-group module-list">
         <li class="list-group-item list-group-item-secondary">
@@ -57,7 +71,7 @@ function ModuleList() {
                     ></FaFilePen>
               </button>
               <button style={{ background: 'white', border: 'white' }}
-               onClick={() => dispatch(deleteModule(module._id))}>
+               onClick={() => handleDeleteModule(module._id)}>
               <FaTrash
                       style={{ color: 'grey', fontSize: '20px' }}
                     ></FaTrash>

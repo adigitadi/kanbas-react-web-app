@@ -4,12 +4,12 @@ import Card from 'react-bootstrap/Card';
 import { FaFilePen } from 'react-icons/fa6';
 import { FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddPopup from './AddCoursePopup';
 import EditPopup from './UpdateCoursePopup';
+import * as client from '../Courses/client'
 
-function Dashboard({ courses, course, setCourse, addNewCourse,
-  deleteCourse, updateCourse }) {
+function Dashboard() {
     const [isOpen, setIsOpen] = useState(false);
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -18,6 +18,40 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
   const togglePopup1 = () => {
     setIsOpen1(!isOpen1);
   }
+
+  const [courses, setCourses] = useState([]);
+  const [course, setCourse] = useState({});
+  const fetchCourses = async () => {
+    const courses = await client.fetchCourses();
+    setCourses(courses);
+  };
+
+  const deleteCourse = async (id) => {
+    try {
+      await client.deleteCourse(id);
+      setCourses(courses.filter((course) => course._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateCourse = async () => {
+    try {
+      await client.updateCourse(course);
+      setCourses(courses.map((c) => (c._id === course._id ? course : c)));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const addCourse = async () => {
+    const newCourse = await client.addCourse(course);
+    setCourses([newCourse, ...courses]);
+  };
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
 
   return (
       <div className="wd-flex-grow-1 main-content">
@@ -48,11 +82,22 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
                       fontWeight: 'bold',
                     }}
                   >
-                    <Link to={`/Kanbas/Courses/${course._id}`}>
+                    <Link
+                    to={`/Kanbas/Courses/${course._id}`}>
                     {course.name}
                     </Link>
                   </Card.Text>
-                  <Card.Text>{course.description}</Card.Text>
+                  <Card.Text style={{ fontSize: '9px',  marginBottom: '0' }}>
+                    {course.description 
+                      ? (course.description.length > 50 
+                        ? `${course.description.substring(0, 50)}...` 
+                        : course.description)
+                      : ''}
+                  </Card.Text>
+
+
+
+
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <Button onClick={(event) => {
                       event.preventDefault();
@@ -79,7 +124,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
           <AddPopup isOpen={isOpen} togglePopup={togglePopup}
               course={course}
               setCourse={setCourse}
-              addNewCourse={addNewCourse}/>
+              addNewCourse={addCourse}/>
        <EditPopup isOpen1={isOpen1} togglePopup1={togglePopup1}
               course={course}
               setCourse={setCourse}

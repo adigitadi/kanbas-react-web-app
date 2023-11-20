@@ -1,20 +1,35 @@
-import React from 'react';
 import './Popup.css';
 import { useParams } from "react-router-dom";
 import { AiOutlineClose } from 'react-icons/ai';
+import React, { useEffect } from 'react';
 import {
   addModule,
-  setModule,
+  setModule, setModules
 } from "./modulesReducer";
 import { useSelector, useDispatch } from "react-redux";
+import { findModulesForCourse, createModule } from "./client";
 
 function Popup ({ isOpen, togglePopup}) {
   const { courseId } = useParams();
   const dispatch = useDispatch();
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId, dispatch]);
+  
   const module = useSelector((state) => state.modulesReducer.module);
   if (!isOpen) {
     return null;
   }
+
+  const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
   
   return (
     <div className="modal-overlay">
@@ -37,7 +52,7 @@ function Popup ({ isOpen, togglePopup}) {
           }
         /><br/>
         <div style={{display: 'flex', justifyContent: 'center'}}>
-        <button class="btn btn-danger" onClick={() => {dispatch(addModule({ ...module, course: courseId }));
+        <button class="btn btn-danger" onClick={() => {handleAddModule();
       togglePopup();}}>
            Add
         </button></div>

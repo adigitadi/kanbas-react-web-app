@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Popup.css';
 import { AiOutlineClose } from 'react-icons/ai';
 import {
   updateModule,
-  setModule,
+  setModule, setModules
 } from "./modulesReducer";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import * as client from "./client";
+import { findModulesForCourse } from "./client";
 
 function Popup ({ isOpen, togglePopup}) {
+  const { courseId } = useParams();
   const dispatch = useDispatch();
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId, dispatch]);
+  const handleUpdateModule = async () => {
+     await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
+  
+  
   const module = useSelector((state) => state.modulesReducer.module);
   if (!isOpen) {
     return null;
@@ -34,7 +51,7 @@ function Popup ({ isOpen, togglePopup}) {
           }
         /> <br/>
         <div style={{display: 'flex', justifyContent: 'center'}}>
-          <button style={{color: 'white', backgroundColor: 'red', width: 100}} onClick={() => {dispatch(updateModule(module));togglePopup();}}>
+          <button style={{color: 'white', backgroundColor: 'red', width: 100}} onClick={() => {handleUpdateModule();togglePopup();}}>
             Update
         </button></div>
         </div>
