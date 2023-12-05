@@ -41,7 +41,7 @@ function Account() {
   };
 
   return (
-    <div className="w-50 container">
+    <div>
       <h1>Account</h1>
       <Link to="/Kanbas/users" className="btn btn-warning m-2">
         Users
